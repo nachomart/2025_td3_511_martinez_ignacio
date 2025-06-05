@@ -56,12 +56,17 @@ add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/../freertos ${CMAKE_BINARY_DIR}/freer
 # Add external Helper library
 add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/../helper ${CMAKE_BINARY_DIR}/helper)
 
+# Add external Helper library
+add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/../lcd ${CMAKE_BINARY_DIR}/lcd)
+
 # Add the standard library to the build
 target_link_libraries(firmware
         pico_stdlib
         freertos
         hardware_adc
         helper
+        hardware_i2c
+        lcd
         )
 
 pico_add_extra_outputs(firmware)
